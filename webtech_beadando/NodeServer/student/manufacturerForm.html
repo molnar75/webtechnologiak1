@@ -1,0 +1,42 @@
+<script>
+    function addManufacturer() {
+        $("#error").empty();
+        var name = $("#name").val();
+        var country = $("#country").val();
+        var founded = $("#founded").val();
+        if (name == '' || country == '' || founded == '') {
+            $('#error').append('You must fill every input!');
+        } else {
+            var manufacturer = {
+                name: name,
+                country: country,
+                founded: founded
+            }
+            $.post("addManufacturers", manufacturer)
+                .done(function(msg){  
+                        alert("Success")
+                        $("#content").load('manufacturers.html');
+                    })
+                .fail(function(xhr, status, error) {
+                    alert("Fail");
+                    $("#content").load('manufacturerForm.html');
+                });
+        }
+    }
+</script>
+
+<div class='main'>
+    <div class='mainContent'>
+        <div class='form'>
+            <h1>Add new manufacturer</h1>
+                <label for="name"><b>Name</b></label>
+                <input type="text" id="name"><br>
+                <label for="country"><b>Country</b></label>
+                <input type="text" id="country"><br>
+                <label for="founded"><b>Founded</b></label>
+                <input type="text" id="founded">
+                <h2 id='error' class='error'></h2>
+                <button onclick="addManufacturer()">Submit</button> <br><br>
+        </div>
+    </div>
+</div>

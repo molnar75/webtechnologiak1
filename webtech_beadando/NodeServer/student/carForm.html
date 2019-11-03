@@ -1,0 +1,65 @@
+<script>
+    $(document).ready(function () {
+        $.getJSON("manufacturers", function(data) {
+            for(var i=0; i < data.length; i++) {
+                $("#select").append("<option>" + data[i].name + "</option>");
+            }
+        })
+    })
+    function addCar() {
+        $("#error").empty();
+        var name = $("#name").val();
+        var consumption = $("#consumption").val();
+        var color = $("#color").val();
+        var manufacturer = $("#select").val();
+        var available = $("#available").val();
+        var year = $("#year").val();
+        var horsepower = $("#horsepower").val();
+        if (name == '' || consumption == '' || color == '' || manufacturer == '' || available == '' || year == '' || horsepower == '') {
+            $('#error').append('You must fill every input!');
+        } else {
+            var car = {
+            name: name,
+            consumption: consumption,
+            color: color,
+            manufacturer: manufacturer,
+            available: available,
+            year: year,
+            horsepower: horsepower
+            }
+            $.post("addCar", car)
+                .done(function(msg){  
+                        alert("Success")
+                        $("#content").load('cars.html');
+                    })
+                .fail(function(xhr, status, error) {
+                    alert("Fail");
+                    $("#content").load('carForm.html');
+                });
+        }
+    }
+</script>
+
+<div class='main'>
+    <div class='mainContent'>
+            <div class='form'>
+                <h1>Add new car</h1>
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" id="name"><br>
+                    <label for="consumption"><b>Consumption</b></label>
+                    <input type="text" id="consumption"><br>
+                    <label for="color"><b>Color</b></label>
+                    <input type="text" id="color"><br>
+                    <label for="manufacturer"><b>Manufacturer</b></label><br>
+                    <select id='select'></select><br>
+                    <label for="available"><b>Available</b></label>
+                    <input type="text" id="available"><br>
+                    <label for="year"><b>Year</b></label>
+                    <input type="text" id="year"><br>
+                    <label for="horsepower"><b>Horsepower</b></label>
+                    <input type="text" id="horsepower">
+                    <h2 id='error' class='error'></h2>
+                    <button onclick="addCar()">Submit</button> <br><br>
+            </div>
+    </div>
+</div>

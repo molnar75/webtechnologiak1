@@ -1,0 +1,151 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #141613;
+}
+  
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px 18px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+li a:hover, .activeLink {
+    background-color: #706c6f;
+}
+
+body {
+    margin: 0;
+    background-color: #706c6f;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.mainContent{
+    padding: 15px;
+    background-color: #f4f1f1;
+    font-size: 16px;
+    border-radius: 10px;
+    display: flow-root;
+}
+
+.headerImage {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+}
+
+td, th {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid black;
+}
+
+tr:nth-child(even) {
+    background-color: #fff;
+}
+
+tr:nth-child(odd) {
+   background-color: #706c6f;
+}
+
+th {
+    background-color: black;
+    color: white;
+}
+
+button {
+    background-color: #141613;
+    font-size: 16px;
+    border-radius: 15px;
+    border: 1px solid black;
+    color: white;
+    padding: 10px;
+    float: right;
+}
+
+button:hover, .showCarsButton:hover {
+    background-color: #706c6f;
+    cursor: pointer;
+}
+
+.showCarsButton {
+    background-color: #141613;
+    font-size: 13px;
+    border-radius: 15px;
+    border: 1px solid black;
+    color: white;
+    padding: 5px;
+    float: none;
+    margin:auto;
+    display:block;
+}
+
+.title {
+    display: inline;
+}
+
+input {
+    width: 95%;
+    padding: 10px;
+    margin: 5px 0 22px 10px;
+    display: inline-block;
+    border: 1px solid slategray;
+    background: #f4f1f1;
+    border-radius: 10px;
+}
+input:focus {
+    outline: none;
+    background: #706c6f;
+    color: white;
+}
+
+label {
+    text-align: left;
+    font-size: 18px;
+}
+
+.form {
+    width: 60%;
+    margin: auto;
+    background-color: #c2bfc1;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+select {
+    margin: 10px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid slategray;
+    border-radius: 10px;
+}
+
+select:focus {
+    outline: none;
+}
+
+.error {
+    color: red;
+    margin-top: 0px;
+}
