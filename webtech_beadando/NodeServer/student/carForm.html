@@ -1,45 +1,4 @@
-<script>
-    $(document).ready(function () {
-        $.getJSON("manufacturers", function(data) {
-            for(var i=0; i < data.length; i++) {
-                $("#select").append("<option>" + data[i].name + "</option>");
-            }
-        })
-    })
-    function addCar() {
-        $("#error").empty();
-        var name = $("#name").val();
-        var consumption = $("#consumption").val();
-        var color = $("#color").val();
-        var manufacturer = $("#select").val();
-        var available = $("#available").val();
-        var year = $("#year").val();
-        var horsepower = $("#horsepower").val();
-        if (name == '' || consumption == '' || color == '' || manufacturer == '' || available == '' || year == '' || horsepower == '') {
-            $('#error').append('You must fill every input!');
-        } else {
-            var car = {
-            name: name,
-            consumption: consumption,
-            color: color,
-            manufacturer: manufacturer,
-            available: available,
-            year: year,
-            horsepower: horsepower
-            }
-            $.post("addCar", car)
-                .done(function(msg){  
-                        alert("Success")
-                        $("#content").load('cars.html');
-                    })
-                .fail(function(xhr, status, error) {
-                    alert("Fail");
-                    $("#content").load('carForm.html');
-                });
-        }
-    }
-</script>
-
+<script src="./js/car.js" type="text/javascript"></script>
 <div class='main'>
     <div class='mainContent'>
             <div class='form'>

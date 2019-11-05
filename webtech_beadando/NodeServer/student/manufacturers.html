@@ -1,26 +1,4 @@
-<script>
-    $.getJSON("manufacturers", function(data) {
-        var table = $('<table id="manufacturersTable"></table>');
-        $(table).append('<tr><th>Name</th><th>Country</th><th>Founded</th><th></th></tr>');
-        $.each(data, function(key, value){
-            var row = $('<tr></tr>');
-            var nameCell = $('<td id="authorId" onclick="openCar(' +
-                "'" +
-                value.name +
-                "'" +
-                ')">' + value.name + '</td>');
-            var countryCell = $('<td>' + value.country + '</td>');
-            var foundedCell = $('<td>' + value.founded + '</td>');
-            var buttonCell = $('<td><button onclick="openCar(\'' + value.name + '\')" class="showCarsButton"> Show cars </button></td>');
-            $(row).append(nameCell);
-            $(row).append(countryCell);
-            $(row).append(foundedCell);
-            $(row).append(buttonCell);
-            $(table).append(row);
-        })
-        $("#table").append(table);
-    })
-</script>
+<script src="./js/manufacturer.js" type="text/javascript"></script>
 <div class='main'>
     <div class='mainContent'>
         <div>
